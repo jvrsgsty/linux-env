@@ -68,3 +68,6 @@ cd ..
 rm -rf $INSTALL_DIR/tmux_tmp
 
 echo "$INSTALL_DIR/local/bin/tmux is now available. You can optionally add $INSTALL_DIR/local/bin to your PATH."
+echo "You can use the following command to add this to your .bashrc"
+echo "export PATH=$INSTALL_DIR/local/bin:\$PATH" >> ~/.bashrc
+
