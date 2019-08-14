@@ -70,4 +70,6 @@ rm -rf $INSTALL_DIR/tmux_tmp
 echo "$INSTALL_DIR/local/bin/tmux is now available. You can optionally add $INSTALL_DIR/local/bin to your PATH."
 echo "You can use the following command to add this to your .bashrc"
 echo "export PATH=$INSTALL_DIR/local/bin:\$PATH" >> ~/.bashrc
+echo "You can also copy my default tmux conf file here. NOTE: this overwrites your present conf file!!"
+echo "curl -fLo ~/.tmux.conf https://raw.githubusercontent.com/jvrsgsty/linux-env/master/configs/tmux/tmux.conf"
 
