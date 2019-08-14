@@ -13,7 +13,9 @@
 # Exit on error
 set -e
 
-TMUX_VERSION=2.8
+TMUX_VERSION=2.9a
+LIBEVENT_VERSION=2.1.8-stable
+NCURSES_VERSION=6.1
 INSTALL_DIR=/home/jvrsgsty
 
 # create our directories
@@ -22,16 +24,16 @@ cd $INSTALL_DIR/tmux_tmp
 
 # download source files for tmux, libevent, and ncurses
 wget -O tmux-${TMUX_VERSION}.tar.gz https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
-wget https://github.com/downloads/libevent/libevent/libevent-2.0.19-stable.tar.gz
-wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
+wget https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}/libevent-${LIBEVENT_VERSION}.tar.gz
+wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
 
 # extract files, configure, and compile
 
 ############
 # libevent #
-############
-tar xvzf libevent-2.0.19-stable.tar.gz
-cd libevent-2.0.19-stable
+###########
+tar xvzf libevent-${LIBEVENT_VERSION}.tar.gz
+cd libevent-${LIBEVENT_VERSION}
 ./configure --prefix=$INSTALL_DIR/local --disable-shared
 make
 make install
@@ -45,8 +47,8 @@ if [[ $(fs --version) =~ "afs" ]] && fs whereis "$INSTALL_DIR/local" ; then
 else
     NCURSES_OPTION="";
 fi
-tar xvzf ncurses-5.9.tar.gz
-cd ncurses-5.9
+tar xvzf ncurses-${NCURSES_VERSION}.tar.gz
+cd ncurses-${NCURSES_VERSION}
 ./configure --prefix=$INSTALL_DIR/local $NCURSES_OPTION
 make
 make install
