@@ -1,0 +1,3 @@
+connect su-vpn.stanford.edu
+0
+

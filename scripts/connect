@@ -1,0 +1,12 @@
+#!/bin/bash
+# -s option specifies to read commands from file
+# Commands stores in vpn_commands.txt
+# Options after connect command are:
+#    0) CardinalKey-FullTraffic
+#    1) CardinalKey-VPN
+#    2) Default Stanford split-tunnel
+#    3) Full Traffic non-split-tunnel
+
+CISCO_PATH=/opt/cisco/anyconnect/bin/
+${CISCO_PATH}/vpn -s < ~/local/bin/vpn_commands.txt
+

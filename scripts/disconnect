@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CISCO_PATH=/opt/cisco/anyconnect/bin/
+${CISCO_PATH}/vpn disconnect
+

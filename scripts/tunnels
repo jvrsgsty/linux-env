@@ -1,0 +1,33 @@
+#!/bin/bash
+mode=$1
+vpn=${2-vpn}
+
+case $mode in
+  *"up"*)
+    echo "Setting up ssh tunnels"
+    case vpn in
+      *"vpn"*)
+        echo "You should be on the Stanford Network or VPN for this to work"
+        ssh -fNL 29029:localhost:29029 ccn06
+        ssh -fNL 29026:localhost:29026 ccn06
+        ssh -fNL 28012:localhost:28012 neuroai12
+        ;;
+      *"kanefsky"*)
+        echo "Kanefsky should have the relevant tunnels set up for this to work"
+        ssh -fNL 29029:localhost:29029 kanefsky
+        ssh -fNL 29026:localhost:29026 kanefsky
+        ssh -fNL 28012:localhost:28012 kanefsky
+        ;;
+      *)
+    esac
+    echo "Done setting up tunnels"
+    ;;
+  *"down"*)
+    pid_list=`ps aux | grep "ssh -fNL" | awk '{print $2}'`
+    for pid in $pid_list; do
+      echo "Killing ${pid}"
+      kill -9 $pid
+    done
+    ;;
+  *)
+esac
