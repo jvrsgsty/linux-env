@@ -5,7 +5,7 @@ vpn=${2-vpn}
 case $mode in
   *"up"*)
     echo "Setting up ssh tunnels"
-    case vpn in
+    case $vpn in
       *"vpn"*)
         echo "You should be on the Stanford Network or VPN for this to work"
         ssh -fNL 29029:localhost:29029 ccn06
