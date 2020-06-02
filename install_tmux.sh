@@ -1,3 +1,4 @@
+#!/bin/bash
 # Script to install a local version of tmux
 # This is what I used to install tmux on icme-cluster
 #
@@ -16,7 +17,7 @@ set -e
 TMUX_VERSION=2.9a
 LIBEVENT_VERSION=2.1.8-stable
 NCURSES_VERSION=6.1
-INSTALL_DIR=/home/jvrsgsty
+INSTALL_DIR=~
 
 # create our directories
 mkdir -p $INSTALL_DIR/local $INSTALL_DIR/tmux_tmp
@@ -70,9 +71,13 @@ rm -rf $INSTALL_DIR/tmux_tmp
 echo ""
 echo "DONE installing tmux from source"
 echo "$INSTALL_DIR/local/bin/tmux is now available. You can optionally add $INSTALL_DIR/local/bin to your PATH."
-echo "You can use the following command to add this to your .bashrc"
+echo "For bash, ksh, and zsh: You can use the following command to add this to your .bashrc, .kshrc or .zshrc, respectively"
 echo ""
 echo 'echo "export PATH='$INSTALL_DIR'/local/bin:\$PATH" >> ~/.bashrc'
+echo ""
+echo "For tcsh and csh: You can use the following command to add this to your .cshrc"
+echo ""
+echo 'echo "set path = ('$INSTALL_DIR'/local/bin  \$path)" >> ~/.cshrc'
 echo ""
 echo "You can also copy my default tmux conf file here. NOTE: this overwrites your present conf file!!"
 echo ""
