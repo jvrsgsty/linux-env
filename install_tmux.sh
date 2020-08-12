@@ -83,4 +83,8 @@ echo "You can also copy my default tmux conf file here. NOTE: this overwrites yo
 echo ""
 echo "curl -fLo ~/.tmux.conf https://raw.githubusercontent.com/jvrsgsty/linux-env/master/configs/tmux/tmux.conf"
 echo ""
+echo "Finally, use this .ssh/rc file to keep the symlink for the SSH_AUTH_SOCK updated. NOTE: this command overwrites your present .ssh/rc file!!"
+echo ""
+echo "curl -fLo ~/.ssh/rc https://raw.githubusercontent.com/jvrsgsty/linux-env/master/configs/ssh/rc"
+echo ""
 
