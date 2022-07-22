@@ -14,9 +14,9 @@
 # Exit on error
 set -e
 
-TMUX_VERSION=3.2a
-LIBEVENT_VERSION=2.1.11-stable
-NCURSES_VERSION=6.2
+TMUX_VERSION=3.3
+LIBEVENT_VERSION=2.1.12-stable
+NCURSES_VERSION=6.3
 INSTALL_DIR=~
 
 # create our directories
